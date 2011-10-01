@@ -1,0 +1,18 @@
+#!/bin/sh
+
+if [ $EUID -ne 0 ]; then
+  echo "You should be root!"
+  exit 1
+fi
+
+INTRUDER_DIR="/Library/Application Support/Intruder"
+INTRUDER=/Library/ScriptingAdditions/Intruder.osax
+AGENT_PLIST=/Library/LaunchAgents/com.intruder.Agent.plist
+
+/bin/launchctl unload -S Aqua "$AGENT_PLIST" 2>/dev/null
+
+rm -rf "$INTRUDER_DIR"
+rm -rf "$INTRUDER"
+rm -f "$AGENT_PLIST"
+
+/usr/bin/killall "IntruderAgent" 2>/dev/null

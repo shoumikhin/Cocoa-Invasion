@@ -1,0 +1,5 @@
+An example of injecting custom code into a particular Cocoa application.
+This injection infects Safari.app. Then you can use Objective-C method
+swizzling and class-dump to see what to patch.
+SIMBL (http://www.culater.net/software/SIMBL/SIMBL.php) uses the same
+method of injecting based on custom Apple script.

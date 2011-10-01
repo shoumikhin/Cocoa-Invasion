@@ -1,0 +1,55 @@
+#!/bin/sh
+
+if [ $EUID -ne 0 ]; then
+  echo "You should be root!"
+  exit 1
+fi
+
+SCRIPTING_ADDITIONS_DIR="/Library/ScriptingAdditions"
+if [ ! -d "$LAUNCH_AGENTS_DIR" ]; then
+  mkdir -p "$SCRIPTING_ADDITIONS_DIR"
+  chown root:wheel "$SCRIPTING_ADDITIONS_DIR"
+fi
+
+chmod 775 "$SCRIPTING_ADDITIONS_DIR"
+
+LAUNCH_AGENTS_DIR="/Library/LaunchAgents"
+if [ ! -d "$LAUNCH_AGENTS_DIR" ]; then
+  mkdir -p "$LAUNCH_AGENTS_DIR"
+  chown root:wheel "$LAUNCH_AGENTS_DIR"
+fi
+
+chmod 755 "$LAUNCH_AGENTS_DIR"
+
+INTRUDER_DIR="/Library/Application Support/Intruder"
+if [ ! -d "$INTRUDER_DIR" ]; then
+  mkdir -p "$INTRUDER_DIR"
+  chown root:wheel "$INTRUDER_DIR"
+fi
+
+chmod 775 "$INTRUDER_DIR"
+
+if [ ! -d "$INTRUDER_DIR/Injections" ]; then
+  mkdir -p "$INTRUDER_DIR/Injections"
+  chown root:wheel "$INTRUDER_DIR/Injections"
+fi
+
+chmod 775 "$INTRUDER_DIR/Injections"
+
+AGENT_APP="IntruderAgent.app"
+
+cp -r "Agent/build/Release/$AGENT_APP" "$INTRUDER_DIR"
+cp -r "Intruder/build/Release/Intruder.osax" "$SCRIPTING_ADDITIONS_DIR"
+cp -r "Injections/Safari/build/Release/Safari.bundle" "$INTRUDER_DIR/Injections"
+
+chown -R root:admin "$INTRUDER_DIR"
+chown -R root:admin "$SCRIPTING_ADDITIONS_DIR/Intruder.osax"
+
+AGENT_PLIST="com.intruder.Agent.plist"
+
+cp "$INTRUDER_DIR/$AGENT_APP/Contents/Resources/$AGENT_PLIST" "$LAUNCH_AGENTS_DIR"
+
+/usr/bin/killall "IntruderAgent" 2>/dev/null
+su -l $USER -c "/bin/launchctl load -F -S Aqua \"$LAUNCH_AGENTS_DIR/$AGENT_PLIST\""
+
+# osascript -e 'quit app "Safari"'

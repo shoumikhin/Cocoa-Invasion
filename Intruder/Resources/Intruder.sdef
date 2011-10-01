@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
+<dictionary title="Intruder">
+	<suite name="Intruder" code="int-" description="">
+		<command name="Intrude into Leopard" code="int-leop" description=""/>
+		<command name="Intrude into Snow Leopard" code="int-load" description=""/>
+	</suite>
+</dictionary>
