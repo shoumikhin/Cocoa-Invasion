@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58843B4B14448FE6003ACDFF /* Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 58843B4914448FE6003ACDFF /* Swizzle.m */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 		BA1209DF129572BD009E7C63 /* Main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1209DC129572BD009E7C63 /* Main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		58843B4914448FE6003ACDFF /* Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Swizzle.m; sourceTree = "<group>"; };
+		58843B4A14448FE6003ACDFF /* Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Swizzle.h; sourceTree = "<group>"; };
 		BA1209DB129572BD009E7C63 /* Main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Main.h; sourceTree = "<group>"; };
 		BA1209DC129572BD009E7C63 /* Main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Main.m; sourceTree = "<group>"; };
 		BA26427D129AD84700DDA4FB /* Safari.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Safari.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +72,8 @@
 		32C88E010371C26100C91783 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				58843B4914448FE6003ACDFF /* Swizzle.m */,
+				58843B4A14448FE6003ACDFF /* Swizzle.h */,
 				BA1209DB129572BD009E7C63 /* Main.h */,
 				BA1209DC129572BD009E7C63 /* Main.m */,
 			);
@@ -102,6 +107,7 @@
 			isa = PBXProject;
 			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "Safari" */;
 			compatibilityVersion = "Xcode 3.0";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -124,6 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA1209DF129572BD009E7C63 /* Main.m in Sources */,
+				58843B4B14448FE6003ACDFF /* Swizzle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,19 +143,16 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
 				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "x86_64 i386";
-				CONFIGURATION_BUILD_DIR = "/Library/Application Support/Quest Software/Invaders/";
+				CONFIGURATION_BUILD_DIR = build/Debug;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Bundles";
 				PRODUCT_NAME = Safari;
 				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
 		};
@@ -161,12 +165,9 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Bundles";
 				PRODUCT_NAME = Safari;
 				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};
