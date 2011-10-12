@@ -1,6 +1,5 @@
 #import "Agent.h"
 
-#import <ScriptingBridge/ScriptingBridge.h>
 #import <Carbon/Carbon.h>
 
 #define INSTALLATION_DIRECTORY "/Library/Application Support/Intruder"
@@ -29,7 +28,7 @@
     SInt32 version;
 
     Gestalt(gestaltSystemVersion, &version);
-	[app setDelegate:self];
+	[app setDelegate: self];
     [app setSendMode: kAEWaitReply | kAENeverInteract | kAEDontRecord];
 	[app sendEvent: kASAppleScriptSuite id: kGetAEUT parameters: 0];
 	[app setSendMode: kAENoReply | kAENeverInteract | kAEDontRecord];

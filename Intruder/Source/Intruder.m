@@ -6,7 +6,7 @@
 #define INJECTION_NAME_SAFARI @"Safari.bundle"
 
 //==================================================================================================
-void inject(NSBundle *bundle)
+static void inject(NSBundle *bundle)
 {
 	@try
 	{

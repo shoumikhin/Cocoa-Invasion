@@ -1,7 +1,8 @@
 #import <Cocoa/Cocoa.h>
+#import <ScriptingBridge/ScriptingBridge.h>
 
 //==================================================================================================
-@interface Agent : NSObject
+@interface Agent : NSObject <SBApplicationDelegate>
 {
 }
 

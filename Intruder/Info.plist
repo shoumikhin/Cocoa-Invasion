@@ -35,7 +35,7 @@
 				<key>Handler</key>
 				<string>intrude</string>
 				<key>ThreadSafe</key>
-				<false/>
+				<true/>
 			</dict>
 		</dict>
 	</dict>
